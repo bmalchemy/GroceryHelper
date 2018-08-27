@@ -84,9 +84,10 @@ namespace GroceryHelper.ViewModels
         private void OnDeleteItemCommandExecuted(ToBuyItem item) =>
             ToBuyItems.Remove(item);
 
-        private async void OnToBuyItemTappedCommandExecuted(ToBuyItem item) =>
-            await _navigationService.NavigateAsync("ToBuyItemDetail", new NavigationParameters{
-                { "toBuyItem", item }
-            });
+		private void OnToBuyItemTappedCommandExecuted(ToBuyItem item) =>
+		  item.Done = true;
+            //await _navigationService.NavigateAsync("ToBuyItemDetail", new NavigationParameters{
+            //    { "toBuyItem", item }
+            //});
     }
 }
