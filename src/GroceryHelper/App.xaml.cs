@@ -11,8 +11,10 @@ using Unity;
 using Prism.Unity;
 using Prism.Logging;
 using Xamarin.Forms;
+using System.Collections.Generic;
 
 using DebugLogger = GroceryHelper.Services.DebugLogger;
+using GroceryHelper.Models;
 
 namespace GroceryHelper
 {
@@ -37,19 +39,28 @@ namespace GroceryHelper
         protected override async void OnInitialized()
         {
             InitializeComponent();
+
             LogUnobservedTaskExceptions();
             AppResources.Culture = CrossMultilingual.Current.DeviceCultureInfo;
 
+          //  await NavigationService.NavigateAsync("/NavigationPage/MainPage?tobuy=Beer&tobuy=Milk&tobuy=Creamer");
             await NavigationService.NavigateAsync("SplashScreenPage");
         }
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+		protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register the Popup Plugin Navigation Service
             containerRegistry.RegisterPopupNavigationService();
             containerRegistry.RegisterInstance(CreateLogger());
 
+			IGroceryItems groceryItems = new GroceryItems();
 
+            // Register grocery item data api service
+			containerRegistry.Register<IGroceryItemDataService, GroceryItemApiDataService>();
+			containerRegistry.RegisterInstance(groceryItems);
+
+			//Core Services
+            
             // Navigating to "TabbedPage?createTab=ViewA&createTab=ViewB&createTab=ViewC will generate a TabbedPage
             // with three tabs for ViewA, ViewB, & ViewC
             // Adding `selectedTab=ViewB` will set the current tab to ViewB
@@ -59,11 +70,18 @@ namespace GroceryHelper
             containerRegistry.RegisterForNavigation<SplashScreenPage>();
             containerRegistry.RegisterForNavigation<ToBuyItemDetail>();
 			containerRegistry.RegisterForNavigation<AddListPage>();
-        }
-
-        protected override void OnStart()
+			containerRegistry.RegisterForNavigation<NewItemPage>();
+			containerRegistry.RegisterForNavigation<SyncPage>();
+			containerRegistry.RegisterForNavigation<GroceryStorePage>();
+			containerRegistry.RegisterForNavigation<CreateGroceryListPage>();
+			containerRegistry.RegisterForNavigation<EditItemPage>();
+			containerRegistry.RegisterForNavigation<UserChoicePage>();
+		}
+        
+		protected override async void OnStart()
         {
             // Handle when your app starts
+		
         }
 
         protected override void OnSleep()

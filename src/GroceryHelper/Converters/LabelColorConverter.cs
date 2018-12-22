@@ -10,7 +10,7 @@ namespace GroceryHelper.Converters
 		{
 			if ((bool)value)
 			{
-				return "#C2C2C2";
+				return "#DDDDDD";
 			}
 			return "#212121";
 		}

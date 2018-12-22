@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:macOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.macOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+             xmlns:ioc="clr-namespace:Prism.Ioc;assembly=Prism.Forms" 
+             xmlns:i18n="using:GroceryHelper.i18n" 
+             xmlns:converters="clr-namespace:GroceryHelper.Converters;assembly=GroceryHelper"
+             x:Name="view" 
+             Title="{Binding Title}" 
+             x:Class="GroceryHelper.Views.GroceryStorePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:LabelColorConverter x:Key="LabelColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="{i18n:Translate SyncButton}" Command="{Binding SyncCommand}" />
+            <Button Text="{i18n:Translate NewItemButton}" Command="{Binding NewItemCommand}" />
+              <ScrollView>
+        <ListView ItemsSource="{Binding GroceryItemsCollection}">
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior Command="{Binding EditItemCommand}" EventName="ItemTapped" EventArgsParameterPath="Item" />
+            </ListView.Behaviors>
+          <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.1*" />
+                            <ColumnDefinition Width="0.4*" />
+                        </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Name}" TextColor="Black" />
+                            <Label Grid.Column="1" Text="{Binding Aisle}" FontSize="Small"  TextColor="Black" />
+                            <Label Grid.Column="2" Text="{Binding Type}" FontSize="Small"  TextColor="Black" />                           
+                        </Grid>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="{i18n:Translate DeleteButton}" IsDestructive="true" Command="{Binding BindingContext.DeleteItemCommand,Source={x:Reference view}}" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

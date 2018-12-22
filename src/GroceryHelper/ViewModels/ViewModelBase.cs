@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using Prism;
@@ -9,7 +8,7 @@ using Prism.Services;
 
 namespace GroceryHelper.ViewModels
 {
-    public class ViewModelBase : BaseViewModel, IActiveAware, INavigationAware, IDestructible, IConfirmNavigation, IConfirmNavigationAsync, IApplicationLifecycleAware, IPageLifecycleAware
+    public class ViewModelBase : BaseViewModel, IActiveAware, IDestructible, IApplicationLifecycleAware, IPageLifecycleAware
     {
         protected IPageDialogService _pageDialogService { get; }
 

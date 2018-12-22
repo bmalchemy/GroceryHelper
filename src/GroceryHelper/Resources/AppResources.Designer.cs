@@ -53,6 +53,18 @@ namespace GroceryHelper.Resources {
             }
         }
         
+        internal static string UserTitle {
+            get {
+                return ResourceManager.GetString("UserTitle", resourceCulture);
+            }
+        }
+        
+        internal static string AdminTitle {
+            get {
+                return ResourceManager.GetString("AdminTitle", resourceCulture);
+            }
+        }
+        
         internal static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
@@ -68,6 +80,36 @@ namespace GroceryHelper.Resources {
         internal static string AddListTitle {
             get {
                 return ResourceManager.GetString("AddListTitle", resourceCulture);
+            }
+        }
+        
+        internal static string NewItemTitle {
+            get {
+                return ResourceManager.GetString("NewItemTitle", resourceCulture);
+            }
+        }
+        
+        internal static string SyncTitle {
+            get {
+                return ResourceManager.GetString("SyncTitle", resourceCulture);
+            }
+        }
+        
+        internal static string GroceryStorePageTitle {
+            get {
+                return ResourceManager.GetString("GroceryStorePageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string CreateGroceryListPageTitle {
+            get {
+                return ResourceManager.GetString("CreateGroceryListPageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string EditItemTitle {
+            get {
+                return ResourceManager.GetString("EditItemTitle", resourceCulture);
             }
         }
         
@@ -104,6 +146,84 @@ namespace GroceryHelper.Resources {
         internal static string SaveButton {
             get {
                 return ResourceManager.GetString("SaveButton", resourceCulture);
+            }
+        }
+        
+        internal static string NewItemButton {
+            get {
+                return ResourceManager.GetString("NewItemButton", resourceCulture);
+            }
+        }
+        
+        internal static string SyncButton {
+            get {
+                return ResourceManager.GetString("SyncButton", resourceCulture);
+            }
+        }
+        
+        internal static string GroceryStorePageButton {
+            get {
+                return ResourceManager.GetString("GroceryStorePageButton", resourceCulture);
+            }
+        }
+        
+        internal static string CreateGroceryListPageButton {
+            get {
+                return ResourceManager.GetString("CreateGroceryListPageButton", resourceCulture);
+            }
+        }
+        
+        internal static string CreateListButton {
+            get {
+                return ResourceManager.GetString("CreateListButton", resourceCulture);
+            }
+        }
+        
+        internal static string ClearListButton {
+            get {
+                return ResourceManager.GetString("ClearListButton", resourceCulture);
+            }
+        }
+        
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        internal static string PleaseSelectItem {
+            get {
+                return ResourceManager.GetString("PleaseSelectItem", resourceCulture);
+            }
+        }
+        
+        internal static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        internal static string Aisle {
+            get {
+                return ResourceManager.GetString("Aisle", resourceCulture);
+            }
+        }
+        
+        internal static string ManualModeButton {
+            get {
+                return ResourceManager.GetString("ManualModeButton", resourceCulture);
+            }
+        }
+        
+        internal static string StoreModeButton {
+            get {
+                return ResourceManager.GetString("StoreModeButton", resourceCulture);
             }
         }
     }

@@ -17,8 +17,12 @@
     </ContentPage.Resources>
     
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{i18n:Translate GroceryStorePageButton}" Command="{Binding GroceryStorePageCommand}" />
+        <ToolbarItem Text="{i18n:Translate UserTitle}" Command="{Binding UserChoiceCommand}" />
+      <!--  <ToolbarItem Text="{i18n:Translate SyncButton}" Command="{Binding SyncCommand}" />
+        <ToolbarItem Text="{i18n:Translate NewItemButton}" Command="{Binding NewItemCommand}" />
         <ToolbarItem Text="{i18n:Translate AddButton}" Command="{Binding AddItemCommand}" />
-        <ToolbarItem Text="{i18n:Translate AddListButton}" Command="{Binding AddListCommand}" />
+        <ToolbarItem Text="{i18n:Translate AddListButton}" Command="{Binding AddListCommand}" /-->
     </ContentPage.ToolbarItems>
     <ScrollView>
         <ListView ItemsSource="{Binding ToBuyItems}" IsRefreshing="{Binding IsBusy}" ItemTapped="Handle_ItemTapped">
@@ -27,12 +31,20 @@
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}">
-                        <TextCell.ContextActions>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="3">
+                    <Label Text="{Binding Name}" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}" />
+                    <Label Margin="5,0" Text="{i18n:Translate Quantity}" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}" />
+                    <Label Text="{Binding Quantity}" Margin="2" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}" />
+                    <Label Margin="5,0" Text="{i18n:Translate Aisle}" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}" />
+                     <Label Text="{Binding Aisle}" TextColor="{Binding Done, Converter={StaticResource LabelColorConverter}}" />
+                    </StackLayout>
+                            <ViewCell.ContextActions>
                             <MenuItem Text="{i18n:Translate DeleteButton}" IsDestructive="true" Command="{Binding BindingContext.DeleteItemCommand,Source={x:Reference view}}" CommandParameter="{Binding .}" />
-                        </TextCell.ContextActions>
-                    </TextCell>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
                 </DataTemplate>
+                
             </ListView.ItemTemplate>
         </ListView>
     </ScrollView>

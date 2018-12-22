@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:i18n="using:GroceryHelper.i18n" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+             xmlns:converters="clr-namespace:GroceryHelper.Converters;assembly=GroceryHelper"
+             x:Class="GroceryHelper.Views.CreateGroceryListPage"
+             Title="{Binding Title}" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:LabelColorConverter x:Key="LabelColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                    <Button Text="{i18n:Translate ClearListButton}" Command="{Binding ClearItemsCommand}"  />
+                    <Button Text="{i18n:Translate CreateListButton}" Command="{Binding CreateListCommand}" />
+              </StackLayout>
+              <ScrollView>
+                <ListView ItemsSource="{Binding GroceryItemsCollection}" ItemTapped="Handle_ItemTapped">
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior Command="{Binding SelectItemTappedCommand}" EventName="ItemTapped" EventArgsParameterPath="Item" />
+                    </ListView.Behaviors>
+                  <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Name}" TextColor="{Binding IsSelected, Converter={StaticResource LabelColorConverter}}" />                        
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

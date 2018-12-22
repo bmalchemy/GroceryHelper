@@ -16,8 +16,16 @@
         <value>Loading...</value>
         <comment>The loading text</comment>
     </data>
+        <data name="UserTitle" xml:space="preserve">
+        <value>User</value>
+        <comment>The title of the Create Grocery List Page</comment>
+    </data>
+        <data name="AdminTitle" xml:space="preserve">
+        <value>Admin</value>
+        <comment>The title of the Grocery Store Page</comment>
+    </data>
     <data name="MainPageTitle" xml:space="preserve">
-        <value>To Buy Items</value>
+        <value>Home</value>
         <comment>The title of the Main Page</comment>
     </data>
     <!--#if (!Empty) -->
@@ -29,6 +37,26 @@
         <value>Add List</value>
         <comment>The title of the AddList page</comment>
     </data>
+    <data name="NewItemTitle" xml:space="preserve">
+        <value>Add New Item</value>
+        <comment>The title of the new item page</comment>
+    </data>
+    <data name="SyncTitle" xml:space="preserve">
+        <value>Sync</value>
+        <comment>The title of the sync page</comment>
+    </data>
+     <data name="GroceryStorePageTitle" xml:space="preserve">
+        <value>Grocery Store</value>
+        <comment>The title of the grocery store page</comment>
+    </data>   
+     <data name="CreateGroceryListPageTitle" xml:space="preserve">
+        <value>Create Grocery List</value>
+        <comment>The title of the grocery store page</comment>
+    </data>
+    <data name="EditItemTitle" xml:space="preserve">
+        <value>Edit Item</value>
+        <comment>The title of the edit item page</comment>
+    </data>   
     <data name="AddButton" xml:space="preserve">
         <value>Add</value>
         <comment>Add Button Text</comment>
@@ -53,5 +81,57 @@
         <value>Save</value>
         <comment>Save Button Text</comment>
     </data>
+    <data name="NewItemButton" xml:space="preserve">
+        <value>New Item</value>
+        <comment>New Item Button Text</comment>
+    </data>
+    <data name="SyncButton" xml:space="preserve">
+        <value>Sync</value>
+        <comment>Sync Button Text</comment>
+    </data>
+    <data name="GroceryStorePageButton" xml:space="preserve">
+        <value>Admin</value>
+        <comment>Grocery Store Button Text</comment>
+    </data>
+    <data name="CreateGroceryListPageButton" xml:space="preserve">
+        <value>User</value>
+        <comment>Grocery List Page Button Text</comment>
+    </data>
+    <data name="CreateListButton" xml:space="preserve">
+        <value>Create List</value>
+        <comment>Grocery List Button Text</comment>
+    </data>
+    <data name="ClearListButton" xml:space="preserve">
+        <value>Clear</value>
+        <comment>Grocery List Clear Button Text</comment>
+    </data>
+    <data name="OK" xml:space="preserve">
+        <value>OK</value>
+        <comment>OK Text</comment>
+    </data>
+    <data name="Warning" xml:space="preserve">
+        <value>Warning</value>
+        <comment>Warning Text</comment>
+    </data>
+    <data name="PleaseSelectItem" xml:space="preserve">
+        <value>Please select at least one item.</value>
+        <comment>Please select at least one item Text</comment>
+    </data>
+     <data name="Quantity" xml:space="preserve">
+        <value>Qty: </value>
+        <comment>How many text?</comment>
+    </data>
+    <data name="Aisle" xml:space="preserve">
+        <value>Aisle</value>
+        <comment>What aisle text</comment>
+    </data>    
+    <data name="ManualModeButton" xml:space="preserve">
+        <value>Manual Mode</value>
+        <comment>Manual mode text</comment>
+    </data>  
+    <data name="StoreModeButton" xml:space="preserve">
+        <value>Store Mode</value>
+        <comment>Store Mode text</comment>
+    </data>  
     <!--#endif -->
 </root>

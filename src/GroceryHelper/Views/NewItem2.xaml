@@ -7,21 +7,26 @@
                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                  xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
                  xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core" 
-                 xmlns:ioc="clr-namespace:Prism.Ioc;assembly=Prism.Forms"
-                 Padding="15,40"
-                 Title="{Binding Title}" 
-                 x:Class="GroceryHelper.Views.AddListPage">
+                 xmlns:converters="clr-namespace:GroceryHelper.Converters;assembly=GroceryHelper"
+                 Padding="30,80" 
+                 Title="{Binding Title}"
+                 x:Class="GroceryHelper.Views.NewItem">
 
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <converters:LabelColorConverter x:Key="LabelColorConverter" />
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True" />
     </pages:PopupPage.Animation>
     
-    <StackLayout Padding="10" BackgroundColor="Silver">
-        <Label Text="{i18n:Translate AddListTitle}" />
-        <Editor HeightRequest="350"
-                BackgroundColor="White"
-                TextColor="Black"
-                Text="{Binding ListModel.List}" />
-        <Button Text="{i18n:Translate AddListButton}" Command="{Binding AddListCommand}" />
+    <StackLayout Padding="20" BackgroundColor="White">
+        <Label Text="{i18n:Translate DescriptionLabel}" />
+        <Entry Text="{Binding Model.Name}" TextColor="{Binding Model.Done, Converter={StaticResource LabelColorConverter}}" />
+        <Label Text="{i18n:Translate IsDoneLabel}" />
+        <Switch IsToggled="{Binding Model.Done}" />
+        <Button Text="{i18n:Translate SaveButton}" Command="{Binding SaveCommand}" />
     </StackLayout>
 </pages:PopupPage>
